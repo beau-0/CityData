@@ -13,17 +13,40 @@
 
 
 <body>
-	<h1>Enter a City</h1>
+	<div class="banner">
+		<h1 class="heading">Select a State</h1>
 	<form action="#" class="search-form">
-		<label for="query"></label>
-    <input type="text" class="query-box">
-		<button type="submit">Submit</button>
+		<label for="query" text="Enter State"></label>
+		<input type="text" class="query-box id="searchfield" name="searchfield" placeholder="Alaska" required spellcheck="true">
+		<button type="submit">Get Data</button>
 	</form>
+</div>
 
-<main role="main" class="results-page">
+	<main role="main" class="results-page">
+
+		<section class="dataOutput">
+	<div class="usPopData"></div>
+	<div class="statePopData"></div>
+	<div class='cityPopData'></div>
+</section>
+    <div class="map" id="map">
+<!--     	<script>
+    	var map;
+    	function initMap() {
+    		map = new google.maps.Map(document.getElementById('map'), {
+    			center: {lat: 40.7128, lng: -74.0060},
+    			zoom: 8
+    		});
+    		var marker = new google.maps.Marker({position: {lat: 40.7128, lng: -74.0060}, map: map});
+    	}
+    	</script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCONTlisYZNQU21IAYvjvzI2UuPgR_NSQY&callback=initMap">
+	</script> -->
+    </div>
+
+	</main>
 
 
-  </main>
 
 
 	<script src="index.js"></script>

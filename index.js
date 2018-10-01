@@ -1,84 +1,159 @@
 var fipsCode = {
-  01: "Alabama",
-  02: "Alaska",
-  04: "Arizona",
-  05: "Arkansas",
-  06: "California",
-  08: "Colorado",
-  09: "Connecticut",
-  10: "Delaware",
-  11: "District of Columbia",
-  12: "Florida",
-  13: "Georgia",
-  15: "Hawaii",
-  16: "Idaho",
-  17: "Illinois",
-  18: "Indiana",
-  19: "Iowa",
-  20: "Kansas",
-  21: "Kentucky",
-  22: "Louisiana",
-  23: "Maine",
-  24: "Maryland",
-  25: "Massachusetts",
-  26: "Michigan",
-  27: "Minnesota",
-  28: "Mississippi",
-  29: "Missouri",
-  30: "Montana",
-  31: "Nebraska",
-  32: "Nevada",
-  33: "New Hampshire",
-  34: "New Jersey",
-  35: "New Mexico",
-  36: "New York",
-  37: "North Carolina",
-  38: "North Dakota",
-  39: "Ohio",
-  40: "Oklahoma",
-  41: "Oregon",
-  42: "Pennsylvania",
-  44: "Rhode Island",
-  45: "South Carolina",
-  46: "South Dakota",
-  47: "Tennessee",
-  48: "Texas",
-  49: "Utah",
-  50: "Vermont",
-  51: "Virginia",
-  53: "Washington",
-  54: "West Virginia",
-  55: "Wisconsin",
-  56: "Wyoming"
+  01: "alabama",
+  02: "alaska",
+  04: "arizona",
+  05: "arkansas",
+  06: "california",
+  08: "colorado",
+  09: "connecticut",
+  10: "delaware",
+  11: "district of columbia",
+  12: "florida",
+  13: "georgia",
+  15: "hawaii",
+  16: "idaho",
+  17: "illinois",
+  18: "indiana",
+  19: "iowa",
+  20: "kansas",
+  21: "kentucky",
+  22: "louisiana",
+  23: "maine",
+  24: "maryland",
+  25: "massachusetts",
+  26: "michigan",
+  27: "minnesota",
+  28: "mississippi",
+  29: "missouri",
+  30: "montana",
+  31: "nebraska",
+  32: "nevada",
+  33: "new hampshire",
+  34: "new jersey",
+  35: "new mexico",
+  36: "new york",
+  37: "north carolina",
+  38: "north dakota",
+  39: "ohio",
+  40: "oklahoma",
+  41: "oregon",
+  42: "pennsylvania",
+  44: "rhode island",
+  45: "south carolina",
+  46: "south dakota",
+  47: "tennessee",
+  48: "texas",
+  49: "utah",
+  50: "vermont",
+  51: "virginia",
+  53: "washington",
+  54: "west virginia",
+  55: "wisconsin",
+  56: "wyoming"
 }
 
-var state = '';
+var searchState = '';
+var stateFip = '';
+var stateLatLong = {};
+var lat; 
+
+// //
+// $.fn.digits = function(){ 
+//     return this.each(function(){ 
+//         $(this).text( $(this).text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") ); 
+//     })
+// }
 
 function listenSubmit() {
   $('.search-form').submit(event => {
     event.preventDefault();
     const searchEntry = $(event.currentTarget).find('.query-box');
-    const searchTerm = searchEntry.val();
-    state = Object.keys(fipsCode).find(key => fipsCode[key] === searchTerm);
+    searchState = searchEntry.val().toLowerCase();
+    stateFip = Object.keys(fipsCode).find(key => fipsCode[key] === searchState);
+    $('.banner').hide(300);
+    $('.dataOutput').show();
     getStateData();
   });
 }
 
-function getStateData() {
-
+function populations(){
   fetch(`https://api.census.gov/data/2017/pep/population?get=POP,GEONAME&for=us:*&key=a57b95a92b2d8258e380064424fa93c36bbd8465`)
     .then(response => response.json())
-    .then(responseJson => console.log(responseJson));
+    .then(function(data){
+    var usPop = Number(data[1][0]).toLocaleString('en');
+    $('.usPopData').html(`United States population is ${usPop}<br>`);
+    });
 
-  fetch(`https://api.census.gov/data/2017/pep/population?get=POP,GEONAME&for=state:${state}&key=a57b95a92b2d8258e380064424fa93c36bbd8465`)
+  fetch(`https://api.census.gov/data/2017/pep/population?get=POP,GEONAME&for=state:${stateFip}&key=a57b95a92b2d8258e380064424fa93c36bbd8465`)
     .then(response => response.json())
-    .then(responseJson => console.log(responseJson));
+    .then(function(data){
+    var statePop = Number(data[1][0]).toLocaleString('en');
+    $('.usPopData').append(`${searchState.substr(0,1).toUpperCase()+searchState.substr(1)} population is ${statePop}`);
+    });
 
-  fetch(`https://api.census.gov/data/2017/pep/population?get=POP,GEONAME&for=place:*&in=state:${state}&key=a57b95a92b2d8258e380064424fa93c36bbd8465`)
+  fetch(`https://api.census.gov/data/2017/pep/population?get=POP,GEONAME&for=place:*&in=state:${stateFip}&key=a57b95a92b2d8258e380064424fa93c36bbd8465`)
     .then(response => response.json())
-    .then(responseJson => console.log(responseJson));
+    .then(function (data) {
+      data.shift();
+      //change population element from string to number so it can be sorted 
+      for (i = 0; i < data.length; i++) {
+        data[i][0] = parseInt(data[i][0], 10);
+      }
+      //sort two dimensional array by first element 
+      data = data.sort(function (a, b) {
+        return b[0] - a[0];
+      });
+      //insert html 
+      $('.cityPopData').html(`${citySort(data)}`);
+    });
+}
 
-    
+//take all cities, find the biggest 10 and make html string
+function citySort(array) {
+  let htmlInsert = '';
+  for (i = 0; i < 10; i++) {
+    htmlInsert += `${array[i][1]}: ${array[i][0].toLocaleString()}<br>`;
+  };
+  htmlInsert = htmlInsert.replace(/Georgia/g, '').replace(/city,/g, '').replace(/consolidated/g, '').replace(/government/g, '').replace(/, /g, '').replace(/unified/g,'').replace(/\(balance\)/g,'');
+  return htmlInsert;
+}
+
+
+function getLatLong (){
+  fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${searchState}&key=AIzaSyCONTlisYZNQU21IAYvjvzI2UuPgR_NSQY`)
+    .then(response => response.json())
+    .then(function(data){
+    stateLatLong = (data.results[0].geometry.location);
+    var lat = stateLatLong.lat;
+    var lng = stateLatLong.lng;
+	// console.log("inside lat is " + lat + " and long is " + lng);
+
+ $('.map').replaceWith(
+   `<div class="map" id="map">
+   <h2>Header Works</h2>
+   <script>
+    	var map;
+    	function initMap() {
+    	map = new google.maps.Map(document.getElementById('map'), {
+    		center: {lat: ${lat}, lng: ${lng}},
+    		zoom: 6
+    	});
+    	var marker = new google.maps.Marker({position: {lat: ${lat}, lng: ${lng}}, map: map});
+    	}
+   </script>
+   </div>
+
+   	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCONTlisYZNQU21IAYvjvzI2UuPgR_NSQY&callback=initMap">
+	</script>`
+    	);
+        	// initMap();
+        	   });
+}
+
+
+function getStateData() {
+// getLatLong();
+populations();
 }
 
 

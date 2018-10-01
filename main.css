@@ -1,0 +1,44 @@
+#map {
+height: 400px;  /* The height is 400 pixels */
+width: 100%;  /* The width is the width of the web page */
+}
+
+body {
+	background-image: url("https://i.lensdump.com/i/AZQad9.jpg");
+	background-size: cover;
+
+}
+
+.banner {
+	margin-left: auto;
+ 	margin-right: auto;
+ 	text-align: center;
+}
+
+.dataOutput {
+	display: none;
+}
+
+.usPopData {
+	background-color: white;
+	color: black;
+ 	max-width: 900px;
+ 	margin-left: auto;
+ 	margin-right: auto;
+	padding: 20px;
+	box-shadow: 0 0 2em grey;
+	margin-bottom: 10px;
+	margin-top: 60px;
+}
+
+
+.cityPopData {
+	background-color: white;
+	color: black;
+ 	max-width: 900px;
+ 	margin-left: auto;
+ 	margin-right: auto;
+	padding: 20px;
+	box-shadow: 0 0 2em grey;
+	line-height: 200%;
+}
