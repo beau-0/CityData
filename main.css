@@ -1,6 +1,5 @@
-#map {
-height: 400px;  /* The height is 400 pixels */
-width: 100%;  /* The width is the width of the web page */
+* {
+	box-sizing: border-box;
 }
 
 body {
@@ -17,6 +16,11 @@ body {
 
 .dataOutput {
 	display: none;
+	max-width: 900px;
+	 	margin-left: auto;
+ 	margin-right: auto;
+ 	box-sizing: border-box;
+
 }
 
 .usPopData {
@@ -25,20 +29,55 @@ body {
  	max-width: 900px;
  	margin-left: auto;
  	margin-right: auto;
-	padding: 20px;
 	box-shadow: 0 0 2em grey;
 	margin-bottom: 10px;
-	margin-top: 60px;
+	margin-top: 0px;
+	line-height: 200%;
+	text-align: center;
+	font-weight: bold;
+	padding: 10px;
+	height: 82px;
 }
 
 
 .cityPopData {
+	display: inline-block;
 	background-color: white;
 	color: black;
- 	max-width: 900px;
- 	margin-left: auto;
- 	margin-right: auto;
-	padding: 20px;
+	padding: 18px;
 	box-shadow: 0 0 2em grey;
 	line-height: 200%;
+	width: 40%;
+	height: 400px;
+}
+
+.map {
+
+	background-color: white;
+	display: inline-block;
+	box-shadow: 0 0 2em grey;
+	width: 58%;
+/*	margin: 10px;*/
+	height: 400px;
+	vertical-align:top;
+	box-sizing: border-box;
+	float:right;
+}
+
+
+h3 {
+line-height: 100%;
+color: rgb(24, 69, 99);
+margin: 10px;
+font-weight: 700px;
+margin-left: auto;
+
+}
+
+h1 {
+	text-align: center;
+/*	box-shadow: 0 0 2em grey;*/
+	color: rgb(57, 60, 61);
+	font-size: 40px;
+	margin-bottom: 10px;
 }

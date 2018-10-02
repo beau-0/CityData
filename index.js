@@ -73,7 +73,12 @@ function listenSubmit() {
     $('.banner').hide(300);
     $('.dataOutput').show();
     getStateData();
+    header();
   });
+}
+
+function header(){
+	$('.h1').replaceWith(`<h1>${searchState.substr(0,1).toUpperCase()+searchState.substr(1)}</h1>`);
 }
 
 function populations(){
@@ -81,14 +86,14 @@ function populations(){
     .then(response => response.json())
     .then(function(data){
     var usPop = Number(data[1][0]).toLocaleString('en');
-    $('.usPopData').html(`United States population is ${usPop}<br>`);
+    $('.usPopData').html(`The population of the United States is ${usPop}<br>`);
     });
 
   fetch(`https://api.census.gov/data/2017/pep/population?get=POP,GEONAME&for=state:${stateFip}&key=a57b95a92b2d8258e380064424fa93c36bbd8465`)
     .then(response => response.json())
     .then(function(data){
     var statePop = Number(data[1][0]).toLocaleString('en');
-    $('.usPopData').append(`${searchState.substr(0,1).toUpperCase()+searchState.substr(1)} population is ${statePop}`);
+    $('.usPopData').append(`The population of ${searchState.substr(0,1).toUpperCase()+searchState.substr(1)} is ${statePop}`);
     });
 
   fetch(`https://api.census.gov/data/2017/pep/population?get=POP,GEONAME&for=place:*&in=state:${stateFip}&key=a57b95a92b2d8258e380064424fa93c36bbd8465`)
@@ -104,7 +109,7 @@ function populations(){
         return b[0] - a[0];
       });
       //insert html 
-      $('.cityPopData').html(`${citySort(data)}`);
+      $('.cityPopData').html(`<h3>${searchState.substr(0,1).toUpperCase()+searchState.substr(1)}'s 10 most populated cities:</h3>${citySort(data)}`);
     });
 }
 
@@ -152,7 +157,7 @@ function getLatLong (){
 
 
 function getStateData() {
-// getLatLong();
+getLatLong();
 populations();
 }
 
