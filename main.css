@@ -5,30 +5,37 @@
 body {
 	background-image: url("https://i.lensdump.com/i/AZQad9.jpg");
 	background-size: cover;
-
+	font-family: 'Marmelad', sans-serif;
 }
 
 .banner {
+	margin-top: 200px;
 	margin-left: auto;
- 	margin-right: auto;
- 	text-align: center;
+	margin-right: auto;
+	text-align: center;
+	box-shadow: 0 0 2em grey;
+	vertical-align: middle;
+	padding-bottom: 20px;
+	background:rgba(255, 254, 254,0.5);
+
+
 }
 
 .dataOutput {
 	display: none;
 	max-width: 900px;
-	 	margin-left: auto;
- 	margin-right: auto;
- 	box-sizing: border-box;
+	margin-left: auto;
+	margin-right: auto;
+	box-sizing: border-box;
 
 }
 
 .usPopData {
 	background-color: white;
 	color: black;
- 	max-width: 900px;
- 	margin-left: auto;
- 	margin-right: auto;
+	max-width: 900px;
+	margin-left: auto;
+	margin-right: auto;
 	box-shadow: 0 0 2em grey;
 	margin-bottom: 10px;
 	margin-top: 0px;
@@ -37,6 +44,8 @@ body {
 	font-weight: bold;
 	padding: 10px;
 	height: 82px;
+	margin-bottom: 12px;
+	border: ridge;
 }
 
 
@@ -47,8 +56,9 @@ body {
 	padding: 18px;
 	box-shadow: 0 0 2em grey;
 	line-height: 200%;
-	width: 40%;
-	height: 400px;
+	width: 40.5%;
+	height: 420px;
+	border: ridge;
 }
 
 .map {
@@ -57,27 +67,57 @@ body {
 	display: inline-block;
 	box-shadow: 0 0 2em grey;
 	width: 58%;
-/*	margin: 10px;*/
-	height: 400px;
+	/*	margin: 10px;*/
+	height: 420px;
 	vertical-align:top;
 	box-sizing: border-box;
 	float:right;
+	border: ridge;
 }
 
 
 h3 {
-line-height: 100%;
-color: rgb(24, 69, 99);
-margin: 10px;
-font-weight: 700px;
-margin-left: auto;
+	line-height: 100%;
+	color: rgba(190, 14, 14, 0.952);
+	margin-top: 10px;
+	margin-bottom: 15px;
+	font-weight: 700px;
+	margin-left: auto;
 
+}
+
+h2 {
+	text-align: center;
+	/*	box-shadow: 0 0 2em grey;*/
+	color: rgb(57, 60, 61);
+	font-size: 60px;
+	margin-bottom: 30px;
+	margin-top: 40px;
+	font-family: 'Shrikhand', cursive;
 }
 
 h1 {
 	text-align: center;
-/*	box-shadow: 0 0 2em grey;*/
 	color: rgb(57, 60, 61);
-	font-size: 40px;
-	margin-bottom: 10px;
+	font-size: 50px;
+	margin-bottom: 30px;
+	margin-top: 40px;
+	font-family: 'Shrikhand', cursive;
+}
+
+button {
+	border: 3px ridge grey;
+	color: rgba(19, 134, 168, 0.952);
+	font-size: 25px;
+	background: rgba (117, 113, 113, 0.952);
+	position: relative;
+	border-radius: 20%;
+	padding: 6px;
+	left: -5px;
+
+}
+
+.query-box {
+	font-size: 20px;
+	padding: 4px;
 }

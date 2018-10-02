@@ -7,32 +7,33 @@
 	<title>CityData</title>
 	<link href="main.css" rel="stylesheet" type="text/css" />
 	<link href="float-grid.css" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Coda|Marmelad|Oswald|Shrikhand" rel="stylesheet">
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-	 crossorigin="anonymous"></script>
+	crossorigin="anonymous"></script>
 </head>
 
 
 <body>
 	<div class="banner">
-		<h1 class="heading">Select a State</h1>
-	<form action="#" class="search-form">
-		<label for="query" text="Enter State"></label>
-		<input type="text" class="query-box id="searchfield" name="searchfield" placeholder="Alaska" required spellcheck="true">
-		<button type="submit">Get Data</button>
-	</form>
-</div>
+		<h1 class="heading">Enter a U.S. State</h1>
+		<form action="#" class="search-form" id="search">
+			<label for="query" text="Enter State"></label>
+			<input type="text" class="query-box" id="searchfield" name="searchfield" placeholder="Alaska" required spellcheck="true">
+			<button type="submit">Get Data</button>
+		</form>
+	</div>
 
 	<main role="main" class="results-page">
 
-	<h1 class='h1'></h1>
+		<h2 class='h2'></h2>
 
-	<section class="dataOutput">
-	<div class="usPopData"></div>
-<!-- 	<div class="statePopData"></div> -->
+		<section class="dataOutput">
+			<div class="usPopData"></div>
+			<!-- 	<div class="statePopData"></div> -->
 
 
-	<div class='cityPopData'></div>
-    <div class="map" id="map">
+			<div class='cityPopData'></div>
+			<div class="map" id="map">
 <!--     	<script>
     	var map;
     	function initMap() {
@@ -45,15 +46,15 @@
     	</script>
 	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCONTlisYZNQU21IAYvjvzI2UuPgR_NSQY&callback=initMap">
 	</script> -->
-    </div>
-	</section>
+</div>
+</section>
 
-	</main>
-
-
+</main>
 
 
-	<script src="index.js"></script>
+
+
+<script src="index.js"></script>
 </body>
 
 </html>
