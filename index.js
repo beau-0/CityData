@@ -1,3 +1,4 @@
+//  fips codes for state, required for US Census API
 var fipsCode = {
 	01: "alabama",
 	02: "alaska",
@@ -57,13 +58,6 @@ var stateFip = '';
 var stateLatLong = {};
 var lat; 
 
-// //
-// $.fn.digits = function(){ 
-//     return this.each(function(){ 
-//         $(this).text( $(this).text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") ); 
-//     })
-// }
-
 function listenSubmit() {
 	$('.search-form').submit(event => {
 		event.preventDefault();
@@ -77,25 +71,29 @@ function listenSubmit() {
 	});
 }
 
+// creates header for results page
 function header(){
 	$('.h2').replaceWith(`<h2>${searchState.substr(0,1).toUpperCase()+searchState.substr(1)}</h2>`);
 }
 
+// call to US Census API, retrieves US population
 function populations(){
 	fetch(`https://api.census.gov/data/2017/pep/population?get=POP,GEONAME&for=us:*&key=a57b95a92b2d8258e380064424fa93c36bbd8465`)
 	.then(response => response.json())
 	.then(function(data){
 		var usPop = Number(data[1][0]).toLocaleString('en');
-		$('.usPopData').html(`The population of the United States is ${usPop}<br>`);
+		$('.usData').html(`<div class="usData">The population of the United States is ${usPop}<br></div>`);
 	});
 
+// call to US Census API, retrieves selected state population
 	fetch(`https://api.census.gov/data/2017/pep/population?get=POP,GEONAME&for=state:${stateFip}&key=a57b95a92b2d8258e380064424fa93c36bbd8465`)
 	.then(response => response.json())
 	.then(function(data){
-		var statePop = Number(data[1][0]).toLocaleString('en');
-		$('.usPopData').append(`The population of ${searchState.substr(0,1).toUpperCase()+searchState.substr(1)} is ${statePop}`);
+		var statePop = Number(data[1][0]).toLocaleString();
+		$('.stateData').html(`<div class="stateData">The population of ${searchState.substr(0,1).toUpperCase()+searchState.substr(1)} is ${statePop}</div>`);
 	});
 
+// call to US Census API, pulls list of cities for selected state and pulls data for each city. Data is filtered, edited and ordered (using 'citySort function') to return the 10 biggest cities in order 
 	fetch(`https://api.census.gov/data/2017/pep/population?get=POP,GEONAME&for=place:*&in=state:${stateFip}&key=a57b95a92b2d8258e380064424fa93c36bbd8465`)
 	.then(response => response.json())
 	.then(function (data) {
@@ -123,7 +121,7 @@ function citySort(array) {
 	return htmlInsert;
 }
 
-
+// takes the user selected state, calls to US Census API to get the latitude longitude  coordinates for the selected state, then uses the lat/long coordinates to create a map centered and marked on the selected state 
 function getLatLong (){
 	fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${searchState}&key=AIzaSyCONTlisYZNQU21IAYvjvzI2UuPgR_NSQY`)
 	.then(response => response.json())
@@ -131,7 +129,6 @@ function getLatLong (){
 		stateLatLong = (data.results[0].geometry.location);
 		var lat = stateLatLong.lat;
 		var lng = stateLatLong.lng;
-	// console.log("inside lat is " + lat + " and long is " + lng);
 
 	$('.map').replaceWith(
 		`<div class="map" id="map">
@@ -150,7 +147,6 @@ function getLatLong (){
 		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCONTlisYZNQU21IAYvjvzI2UuPgR_NSQY&callback=initMap">
 		</script>`
 		);
-        	// initMap();
         });
 }
 

@@ -17,8 +17,6 @@ body {
 	vertical-align: middle;
 	padding-bottom: 20px;
 	background:rgba(255, 254, 254,0.5);
-
-
 }
 
 .dataOutput {
@@ -27,10 +25,9 @@ body {
 	margin-left: auto;
 	margin-right: auto;
 	box-sizing: border-box;
-
 }
 
-.usPopData {
+.popData {
 	background-color: white;
 	color: black;
 	max-width: 900px;
@@ -43,7 +40,6 @@ body {
 	text-align: center;
 	font-weight: bold;
 	padding: 10px;
-	height: 82px;
 	margin-bottom: 12px;
 	border: ridge;
 }
@@ -62,9 +58,7 @@ body {
 }
 
 .map {
-
 	background-color: white;
-	display: inline-block;
 	box-shadow: 0 0 2em grey;
 	width: 58%;
 	/*	margin: 10px;*/
@@ -88,7 +82,6 @@ h3 {
 
 h2 {
 	text-align: center;
-	/*	box-shadow: 0 0 2em grey;*/
 	color: rgb(57, 60, 61);
 	font-size: 60px;
 	margin-bottom: 30px;
@@ -120,4 +113,8 @@ button {
 .query-box {
 	font-size: 20px;
 	padding: 4px;
+}
+
+.stateData {
+
 }
