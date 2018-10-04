@@ -63,7 +63,7 @@ function listenSubmit() {
 	$('.search-form').submit(event => {
 		event.preventDefault();
 		const searchEntry = $(event.currentTarget).find('.query-box');
-		searchState = searchEntry.val().toLowerCase()
+		searchState = $.trim(searchEntry.val().toLowerCase());
 		stateFip = Object.keys(fipsCode).find(key => fipsCode[key] === searchState);
 		console.log(searchState);
 		if (Number(stateFip) >=1 && Number(stateFip) <= 56){
@@ -127,8 +127,7 @@ function citySort(array) {
 	};
 	var stateEntered = $(searchState);
 
-	htmlInsert = htmlInsert.replace(new RegExp (searchEntered, "gi"), '').replace(/city,/g, '').replace(/consolidated/g, '').replace(/government/g, '').replace(/, /g, '').replace(/unified/g,'').replace(/\(balance\)/g,'');
-	stateEntered.find('htmlInsert').replaceWith('', 'gi');
+	htmlInsert = htmlInsert.replace(/georgia/gi, '').replace(/city,/g, '').replace(/consolidated/g, '').replace(/government/g, '').replace(/, /g, '').replace(/unified/g,'').replace(/\(balance\)/g,'');
 	return htmlInsert;
 }
 
