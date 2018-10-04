@@ -57,23 +57,31 @@ var searchState = '';
 var stateFip = '';
 var stateLatLong = {};
 var lat; 
+var searchEntry;
 
 function listenSubmit() {
 	$('.search-form').submit(event => {
 		event.preventDefault();
 		const searchEntry = $(event.currentTarget).find('.query-box');
-		searchState = searchEntry.val().toLowerCase();
+		searchState = searchEntry.val().toLowerCase()
 		stateFip = Object.keys(fipsCode).find(key => fipsCode[key] === searchState);
+		console.log(searchState);
+		if (Number(stateFip) >=1 && Number(stateFip) <= 56){
 		$('.banner').hide();
 		$('.dataOutput').show();
 		getStateData();
 		header();
+		newState();
+		}
+		else {
+		$('.error').html(`<span class='error'>State is not valid. Make sure it is spelled correctly.</span>`);
+		}
 	});
 }
 
 // creates header for results page
 function header(){
-	$('.h2').replaceWith(`<h2>${searchState.substr(0,1).toUpperCase()+searchState.substr(1)}</h2>`);
+	$('.h2').replaceWith(`<h2 class='h2'>${searchState.substr(0,1).toUpperCase()+searchState.substr(1)}</h2>`);
 }
 
 // call to US Census API, retrieves US population
@@ -111,13 +119,16 @@ function populations(){
   });
 }
 
-//take all cities, find the biggest 10 and make html string
+//take all cities, find the biggest 10 and make html string. also performs some formatting as the output from the census API is not pretty.
 function citySort(array) {
 	let htmlInsert = '';
 	for (i = 0; i < 10; i++) {
 		htmlInsert += `${array[i][1]}: ${array[i][0].toLocaleString()}<br>`;
 	};
-	htmlInsert = htmlInsert.replace(/Georgia/g, '').replace(/city,/g, '').replace(/consolidated/g, '').replace(/government/g, '').replace(/, /g, '').replace(/unified/g,'').replace(/\(balance\)/g,'');
+	var stateEntered = $(searchState);
+
+	htmlInsert = htmlInsert.replace(new RegExp (searchEntered, "gi"), '').replace(/city,/g, '').replace(/consolidated/g, '').replace(/government/g, '').replace(/, /g, '').replace(/unified/g,'').replace(/\(balance\)/g,'');
+	stateEntered.find('htmlInsert').replaceWith('', 'gi');
 	return htmlInsert;
 }
 
@@ -150,10 +161,21 @@ function getLatLong (){
         });
 }
 
+function newState() {
+	$('.newState').html(`<div class='newState'>
+		<form action="#" class="search-form" id="search">
+		<label for="query" text="Enter State"></label>
+		<input type="text" class="query-box" id="searchfield" name="searchfield" placeholder="Try Another State" required spellcheck="true">
+		<button type="submit">Get Data</button>
+		</form>
+		</div>`);
+	listenSubmit();
+}
 
 function getStateData() {
 	getLatLong();
 	populations();
+	newState();
 }
 
 
