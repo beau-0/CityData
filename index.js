@@ -161,13 +161,16 @@ function getLatLong (){
 }
 
 function newState() {
-	$('.newState').html(`<div class='newState'>
+	$('.newState').html(`
 		<form action="#" class="search-form" id="search">
-		<label for="query" text="Enter State"></label>
-		<input type="text" class="query-box" id="searchfield" name="searchfield" placeholder="Try Another State" required spellcheck="true">
-		<button type="submit">Get Data</button>
+			<fieldset>
+			<legend class="newState"></legend>
+			<label for="query" text="Enter State"></label>
+			<input type="text" class="query-box" id="query" name="searchfield" placeholder="Try Another State" required spellcheck="true">
+			<button type="submit" name="submit-button">Get Data</button>
+		</fieldset>
 		</form>
-		</div>`);
+		<div class='error'></div>`);
 	listenSubmit();
 }
 

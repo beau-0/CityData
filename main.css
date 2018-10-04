@@ -91,13 +91,14 @@ h2 {
 	font-family: 'Shrikhand', cursive;
 }
 
-h1 {
+.heading {
 	text-align: center;
 	color: rgb(57, 60, 61);
 	font-size: 50px;
 	margin-bottom: 30px;
 	margin-top: 40px;
 	font-family: 'Shrikhand', cursive;
+	border: none;
 }
 
 button {
@@ -135,4 +136,14 @@ h4 {
 	color: red;
 	font-size: 20px;
 	font-weight: 800px;
+}
+
+fieldset {
+		border: none;
+}
+
+.newState {
+	color: 	black;
+	font-size: 	26px;
+	font-weight: 	bolder;
 }

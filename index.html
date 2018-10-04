@@ -14,12 +14,14 @@
 </head>
 
 <body>
-	<header class="banner">
-		<h1 class="heading">Enter a U.S. State</h1>
+	<header class="banner" role="banner">
 		<form action="#" class="search-form" id="search">
+			<fieldset>
+			<legend class="heading">Enter a U.S. State</legend>
 			<label for="query" text="Enter State"></label>
-			<input type="text" class="query-box" id="searchfield" name="searchfield" placeholder="Alaska" required spellcheck="true">
-			<button type="submit">Get Data</button>
+			<input type="text" class="query-box" id="query" name="searchfield" placeholder="Alaska" required spellcheck="true">
+			<button type="submit" name="submit-button">Get Data</button>
+		</fieldset>
 		</form>
 		<div class='error'></div>
 	</header>
