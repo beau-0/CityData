@@ -171,6 +171,7 @@ function getLatLong (){
         });
 }
 
+// create search box for user to have a place to enter additional states
 function newState() {
 	$('.newState').html(`
 		<form action="#" class="search-form" id="search">
