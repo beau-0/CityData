@@ -3,7 +3,9 @@
 }
 
 body {
-	background-image: url("https://i.lensdump.com/i/AZQad9.jpg");
+/*	background-image: url("https://i.lensdump.com/i/AZQad9.jpg");*/
+/*background-image: url("https://wallpaperstudio10.com/static/wpdb/wallpapers/3840x2160/188299.jpg");*/
+background-image: url("https://www.pixelstalk.net/wp-content/uploads/2016/05/Awesome-new-york-lights-wallpaper-hd.jpg");
 	background-size: 100vw 100vh;
 	background-position: fixed;
 	font-family: 'Marmelad', sans-serif;
@@ -19,6 +21,7 @@ body {
 	vertical-align: middle;
 	padding-bottom: 20px;
 	background:rgba(255, 254, 254,0.5);
+/*	background:rgba(97, 98, 99, 0.515);;*/
 }
 
 .dataOutput {
@@ -54,20 +57,19 @@ body {
 	padding: 18px;
 	box-shadow: 0 0 2em grey;
 	line-height: 200%;
-	width: 40.5%;
 	height: 420px;
 	border: ridge;
+	margin-right: 14px;
+	margin-bottom: 12px;
+	text-align: center;
 }
 
 .map {
 	background-color: white;
 	box-shadow: 0 0 2em grey;
-	width: 58%;
-	/*	margin: 10px;*/
 	height: 420px;
 	vertical-align:top;
 	box-sizing: border-box;
-	float:right;
 	border: ridge;
 }
 
@@ -85,45 +87,74 @@ h3 {
 h2 {
 	text-align: center;
 	color: rgb(57, 60, 61);
-	font-size: 60px;
+	font-size: 55px;
 	margin-bottom: 30px;
-	margin-top: 40px;
+	margin-top: 30px;
 	font-family: 'Shrikhand', cursive;
 }
 
 .heading {
 	text-align: center;
 	color: rgb(57, 60, 61);
-	font-size: 50px;
+	font-size: 55px;
 	margin-bottom: 30px;
 	margin-top: 40px;
 	font-family: 'Shrikhand', cursive;
 	border: none;
 }
 
-button {
-	border: 3px ridge grey;
-	color: rgba(19, 134, 168, 0.952);
-	font-size: 25px;
-	background: rgba (117, 113, 113, 0.952);
-	position: relative;
-	border-radius: 20%;
-	padding: 6px;
-	left: -5px;
 
+button {
+   border-top: 1px solid #a1a5a8;
+   background: #969396;
+   background: -webkit-gradient(linear, left top, left bottom, from(#595959), to(#969396));
+   background: -webkit-linear-gradient(top, #595959, #969396);
+   background: -moz-linear-gradient(top, #595959, #969396);
+   background: -ms-linear-gradient(top, #595959, #969396);
+   background: -o-linear-gradient(top, #595959, #969396);
+   padding: 4px 16px;
+   -webkit-border-radius: 23px;
+   -moz-border-radius: 23px;
+   border-radius: 23px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: #ffffff;
+   font-size: 21px;
+   font-family: Georgia, Serif;
+   text-decoration: none;
+   vertical-align: middle;
+   position: relative;
+   top: -3px;
+   }
+button:hover {
+   border-top-color: #4a8dd4;
+   background: #4a8dd4;
+   color: #d9d9d9;
+   }
+button:active {
+   border-top-color: #1b435e;
+   background: #1b435e;
 }
 
 .query-box {
-	font-size: 20px;
+	font-size: 21px;
 	padding: 4px;
 	margin-bottom: 14px;
+	 border-radius:15px; 
+    -moz-border-radius:15px; 
+    -webkit-border-radius:15px; 
+    border: 1px solid darkgrey;
+    min-width: 100px;
 }
 
 .newState {
-	margin-left: auto;	
+	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
 	margin-top: 40px;
+	margin-bottom: 0px;
 }
 
 h4 {
@@ -139,7 +170,8 @@ h4 {
 }
 
 fieldset {
-		border: none;
+	border: none;
+	padding: 0px;
 }
 
 .newState {

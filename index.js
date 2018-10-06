@@ -84,6 +84,14 @@ function header(){
 	$('.h2').replaceWith(`<h2 class='h2'>${searchState.substr(0,1).toUpperCase()+searchState.substr(1)}</h2>`);
 }
 
+// capitalize each word in state 
+function convert_case(text) {
+return text.toLowerCase()
+    .split(' ')
+    .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+    .join(' ');
+}
+
 // call to US Census API, retrieves US population
 function populations(){
 	fetch(`https://api.census.gov/data/2017/pep/population?get=POP,GEONAME&for=us:*&key=a57b95a92b2d8258e380064424fa93c36bbd8465`)
@@ -125,9 +133,12 @@ function citySort(array) {
 	for (i = 0; i < 10; i++) {
 		htmlInsert += `${array[i][1]}: ${array[i][0].toLocaleString()}<br>`;
 	};
-	var stateEntered = $(searchState);
 
-	htmlInsert = htmlInsert.replace(/georgia/gi, '').replace(/city,/g, '').replace(/consolidated/g, '').replace(/government/g, '').replace(/, /g, '').replace(/unified/g,'').replace(/\(balance\)/g,'');
+	var state = convert_case(searchState);
+
+	htmlInsert = htmlInsert.replace(/city,/g, '').replace(/consolidated/g, '').replace(/government/g, '').replace(/, /g, '').replace(/unified/g,'').replace(/\(balance\)/g,'');
+	htmlInsert = htmlInsert.split(state).join();
+	htmlInsert = htmlInsert.replace(/  ,/g, '').replace(/,/g, '');
 	return htmlInsert;
 }
 
@@ -166,7 +177,7 @@ function newState() {
 			<fieldset>
 			<legend class="newState"></legend>
 			<label for="query" text="Enter State"></label>
-			<input type="text" class="query-box" id="query" name="searchfield" placeholder="Try Another State" required spellcheck="true">
+			<input type="text" class="query-box" id="query" name="searchfield" placeholder=" Try Another State" required spellcheck="true">
 			<button type="submit" name="submit-button">Get Data</button>
 		</fieldset>
 		</form>

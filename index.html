@@ -17,17 +17,18 @@
 	<header class="banner" role="banner">
 		<form action="#" class="search-form" id="search">
 			<fieldset>
-			<legend class="heading">Enter a U.S. State</legend>
-			<label for="query" text="Enter State"></label>
-			<input type="text" class="query-box" id="query" name="searchfield" placeholder="Alaska" required spellcheck="true">
-			<button type="submit" name="submit-button">Get Data</button>
-		</fieldset>
+				<legend class="heading">Enter a U.S. State</legend>
+				<label for="query" text="Enter State"></label>
+				<input type="text" class="query-box" id="query" name="searchfield" placeholder="  Alaska" required spellcheck="true">
+				<button type="submit" name="submit-button">Get Data </button>
+			</fieldset>
 		</form>
 		<div class='error'></div>
 	</header>
 
-	<main role="main" class="results-page">
-
+	<main role="main" class="results-page" >
+	
+		<div class='newState'></div>
 		<h2 class='h2'></h2>
 
 		<section class="dataOutput">
@@ -37,11 +38,10 @@
 			<div class="stateData"></div>
 			</section>
 
-			<div class='cityPopData'></div>
-			<div class="map" id="map"></div>
+			<div class='cityPopData col-6'></div>
+			<div class="map col-6" id="map"></div>
 		</section>
 
-		<div class='newState'></div>
 	</main>
 
 	<script src="index.js"></script>
