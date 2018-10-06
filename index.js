@@ -68,7 +68,7 @@ function listenSubmit() {
 		console.log(searchState);
 		if (Number(stateFip) >=1 && Number(stateFip) <= 56){
 		$('.banner').hide();
-		$('.dataOutput').show();
+		$('.results-page').show();
 		getStateData();
 		header();
 		newState();

@@ -13,19 +13,17 @@ background-image: url("https://www.pixelstalk.net/wp-content/uploads/2016/05/Awe
 }
 
 .banner {
-	margin-top: 200px;
+	margin-top: 40px;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
-	box-shadow: 0 0 2em grey;
+/*	box-shadow: 0 0 2em grey;*/
 	vertical-align: middle;
 	padding-bottom: 20px;
-	background:rgba(255, 254, 254,0.5);
-/*	background:rgba(97, 98, 99, 0.515);;*/
+	background:rgba(255, 254, 254,0.6);
 }
 
 .dataOutput {
-	display: none;
 	max-width: 900px;
 	margin-left: auto;
 	margin-right: auto;
@@ -33,7 +31,7 @@ background-image: url("https://www.pixelstalk.net/wp-content/uploads/2016/05/Awe
 }
 
 .popData {
-	background-color: white;
+	background:rgba(255, 254, 254, .8);
 	color: black;
 	max-width: 900px;
 	margin-left: auto;
@@ -46,7 +44,8 @@ background-image: url("https://www.pixelstalk.net/wp-content/uploads/2016/05/Awe
 	font-weight: bold;
 	padding: 10px;
 	margin-bottom: 12px;
-	border: ridge;
+	border: 1px solid slategrey;
+	border-radius: 25px;
 }
 
 
@@ -56,12 +55,14 @@ background-image: url("https://www.pixelstalk.net/wp-content/uploads/2016/05/Awe
 	color: black;
 	padding: 18px;
 	box-shadow: 0 0 2em grey;
+	background:rgba(255, 254, 254, .8);
 	line-height: 200%;
 	height: 420px;
-	border: ridge;
 	margin-right: 14px;
 	margin-bottom: 12px;
 	text-align: center;
+		border: 1px solid slategrey;
+			border-radius: 25px;
 }
 
 .map {
@@ -70,36 +71,40 @@ background-image: url("https://www.pixelstalk.net/wp-content/uploads/2016/05/Awe
 	height: 420px;
 	vertical-align:top;
 	box-sizing: border-box;
-	border: ridge;
+	border: 1px solid slategrey;
+		border-radius: 25px;
+
 }
 
 
 h3 {
 	line-height: 100%;
-	color: rgba(190, 14, 14, 0.952);
+	color: rgb(167, 42, 42);
 	margin-top: 10px;
 	margin-bottom: 15px;
 	font-weight: 700px;
 	margin-left: auto;
-
 }
 
 h2 {
 	text-align: center;
-	color: rgb(57, 60, 61);
+	margin-bottom: 15px;
+	color: rgb(53, 52, 52);
 	font-size: 55px;
 	margin-bottom: 30px;
-	margin-top: 30px;
-	font-family: 'Shrikhand', cursive;
+/*	font-family: 'Shrikhand', cursive;*/
+font-family: 'Shrikhand', cursive;
+	line-height: .5;
+	position:relative;
+  	top:-8px;
 }
 
 .heading {
 	text-align: center;
-	color: rgb(57, 60, 61);
+	color: rgb(53, 52, 52);
 	font-size: 55px;
 	margin-bottom: 30px;
-	margin-top: 40px;
-	font-family: 'Shrikhand', cursive;
+font-family: 'Shrikhand', cursive;
 	border: none;
 }
 
@@ -178,4 +183,21 @@ fieldset {
 	color: 	black;
 	font-size: 	26px;
 	font-weight: 	bolder;
+}
+
+.dataBody {
+	background:rgba(255, 254, 254, .6);
+	padding: 12px;
+	max-width: 950px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom: 30px;
+	margin-top: 45px;
+	border: 4px outset;
+	line-height: 50%;
+	border-radius: 25px;
+}
+
+.results-page {
+	display: none;
 }
