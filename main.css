@@ -3,8 +3,6 @@
 }
 
 body {
-/*	background-image: url("https://i.lensdump.com/i/AZQad9.jpg");*/
-/*background-image: url("https://wallpaperstudio10.com/static/wpdb/wallpapers/3840x2160/188299.jpg");*/
 background-image: url("https://www.pixelstalk.net/wp-content/uploads/2016/05/Awesome-new-york-lights-wallpaper-hd.jpg");
 	background-size: 100vw 100vh;
 	background-position: fixed;
@@ -169,9 +167,9 @@ h4 {
 }
 
 .error {
-	color: red;
+	color: #C9FF28;
 	font-size: 20px;
-	font-weight: 800px;
+	font-weight: 900px;
 }
 
 fieldset {
@@ -182,7 +180,7 @@ fieldset {
 .newState {
 	color: 	black;
 	font-size: 	26px;
-	font-weight: 	bolder;
+	font-weight: bolder;
 }
 
 .dataBody {
@@ -193,7 +191,7 @@ fieldset {
 	margin-right: auto;
 	padding-bottom: 30px;
 	margin-top: 45px;
-	border: 4px outset;
+	border: 4px ridge;
 	line-height: 50%;
 	border-radius: 25px;
 }
