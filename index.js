@@ -11,7 +11,7 @@ var fipsCode = {
 	11: "district of columbia",
 	12: "florida",
 	13: "georgia",
-	15: "hawaii",
+	// 15: "hawaii",
 	16: "idaho",
 	17: "illinois",
 	18: "indiana",
@@ -39,7 +39,7 @@ var fipsCode = {
 	40: "oklahoma",
 	41: "oregon",
 	42: "pennsylvania",
-	44: "rhode island",
+	// 44: "rhode island",
 	45: "south carolina",
 	46: "south dakota",
 	47: "tennessee",
@@ -65,7 +65,6 @@ function listenSubmit() {
 		const searchEntry = $(event.currentTarget).find('.query-box');
 		searchState = $.trim(searchEntry.val().toLowerCase());
 		stateFip = Object.keys(fipsCode).find(key => fipsCode[key] === searchState);
-		console.log(searchState);
 		if (Number(stateFip) >=1 && Number(stateFip) <= 56){
 		$('.banner').hide();
 		$('.results-page').show();
