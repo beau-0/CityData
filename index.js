@@ -173,12 +173,12 @@ function getLatLong (){
 // create search box for user to have a place to enter additional states
 function newState() {
 	$('.newState').html(`
-		<form action="#" class="search-form" id="search">
+		<form action="#" class="search-form" id="search" role="form">
 			<fieldset>
 			<legend class="newState"></legend>
 			<label for="query" text="Enter State"></label>
 			<input type="text" class="query-box" id="query" name="searchfield" placeholder=" Try Another State" required spellcheck="true">
-			<button type="submit" name="submit-button">Get Data</button>
+			<button type="submit" name="submit-button" role="button">Get Data</button>
 		</fieldset>
 		</form>
 		<div class='error'></div>`);
