@@ -136,8 +136,10 @@ function citySort(array) {
 	var state = convert_case(searchState);
 
 	htmlInsert = htmlInsert.replace(/city,/g, '').replace(/consolidated/g, '').replace(/government/g, '').replace(/, /g, '').replace(/unified/g,'').replace(/\(balance\)/g,'');
+	if (state != "New York"){
 	htmlInsert = htmlInsert.split(state).join();
 	htmlInsert = htmlInsert.replace(/  ,/g, '').replace(/,/g, '');
+}
 	return htmlInsert;
 }
 
